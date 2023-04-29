@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>メールフォーム</title>
+<style type="text/css"><!--
+body   {background-color:#ffcc66;
+}
+.title {color:#339966;
+        text-align:center;
+}
+.box   {background-color:#ffffcc;
+}
+.que   {color:#0066cc;
+}
+--></style>
+<script type="text/javascript"><!--
+function Nul_Check(){
+    if(document.mail_form.name.value==""){
+        alert("名前を入力して下さい");
+        return false;
+    }
+    if(document.mail_form.address.value==""){
+        alert("メールアドレスを入力して下さい");
+        return false;
+    }
+    return true;
+}
+// -->
+</script>
+</head>
+<body>
+<h1 class="title">よくあるメールフォーム</h1>
+
+<form method="post" action="http://xxx.xxx.xxx/xxx/xxx.cgi" name="mail_form" onSubmit="javascript:return Nul_Check()">
+<input type="hidden" name="xxxxx" value="xxxx@xxx.xx.xx">
+<input type="hidden" name="xxxxx" value="メール送信フォーム">
+<input type="hidden" name="xxxxx" value="http://www.xxx.xx.xxx/~xxx/">
+
+<table cellspacing="0" cellpadding="0" border="0" align="center" class="box">
+<tr>
+<td width="15" height="15"><img src="image/frame_a.gif" alt=""></td>
+<td colspan="2"><img src="image/dummy.gif" alt=""></td>
+<td width="15" height="15"><img src="image/frame_b.gif" alt=""></td>
+</tr>
+
+
+<tr>
+<td><img src="image/dummy.gif" alt=""></td>
+<td width="120" height="30" class="que">■お名前</td>
+<td width="200"><input type="text" name="name" size="40"></td>
+<td><img src="image/dummy.gif" alt=""></td>
+</tr>
+
+
+<tr>
+<td><img src="image/dummy.gif" alt=""></td>
+<td height="30" class="que">■メールアドレス</td>
+<td><input type="text" name="address" size="40"></td>
+<td><img src="image/dummy.gif" alt=""></td>
+</tr>
+
+
+<tr>
+<td><img src="image/dummy.gif" alt=""></td>
+<td height="30" class="que">■性別</td>
+<td>
+<input type="radio" name="sex" value="male">男性
+<input type="radio" name="sex" value="female">女性
+</td>
+<td><img src="image/dummy.gif" alt=""></td>
+</tr>
+
+
+<tr>
+<td><img src="image/dummy.gif" alt=""></td>
+<td height="30" class="que">■お住まい</td>
+<td class="ans">
+<select name="area">
+<option value="">--- 選択してください ---</option>
+<option value="hokkaido">北海道</option>
+<option value="tohoku">東北</option>
+<option value="kanto">関東</option>
+<option value="hokuriku">北陸</option>
+<option value="chubu">中部</option>
+<option value="kansai">関西</option>
+<option value="sikoku">四国</option>
+<option value="kyusyu">九州</option>
+<option value="okinawa">沖縄</option>
+</select>
+</td>
+<td><img src="image/dummy.gif" alt=""></td>
+</tr>
+
+
+<tr>
+<td><img src="image/dummy.gif" alt=""></td>
+<td height="30" class="que">■良かった点</td>
+<td class="ans">
+<input type="checkbox" name="fine" value="design">デザイン
+<input type="checkbox" name="fine" value="illust">イラスト
+<input type="checkbox" name="fine" value="photo">写真
+<input type="checkbox" name="fine" value="diary">日記
+<td><img src="image/dummy.gif" alt=""></td>
+</tr>
+
+
+<tr>
+<td><img src="image/dummy.gif" alt=""></td>
+<td valign="top" class="que">■感想</td>
+<td><textarea name="impression" cols="50" rows="10"></textarea></td>
+<td><img src="image/dummy.gif" alt=""></td>
+</tr>
+
+
+<tr><td colspan="4" height="10"><img src="image/dummy.gif" alt=""></td></tr>
+<tr>
+<td colspan="4" align="center">
+<input type="submit" value="送信">
+<input type="reset" value="やり直し">
+</td>
+</tr>
+<tr>
+<td><img src="image/frame_c.gif" width="15" height="15" alt=""></td>
+<td colspan="2"><img src="image/dummy.gif" alt=""></td>
+<td><img src="image/frame_d.gif" width="15" height="15" alt=""></td>
+</tr>
+</table>
+</form>
+
+
+<p align="center"><a href="../index.html">戻る</a></p>
+</body>
+</html>
