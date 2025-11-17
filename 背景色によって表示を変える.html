@@ -275,14 +275,14 @@
             function check_all(bool) {
                 let checkColors = document.getElementsByName("check_color");
                 if (bool) {
-                    //「全選択」の処理
+                    //「全選択」の処理：色選択のチェックボックスに全てチェックを入れ、「全解除」ボタンに変更
                     checkColors.forEach(all => {
                         all.checked = true;
                         color_check();
                     })
                     checkAll_btn.textContent = '全解除';
                 }else {
-                    //「全解除」の処理
+                    //「全解除」の処理：色選択のチェックボックスのチェックを全て解除し、「全選択」ボタンに変更
                     checkColors.forEach(all => {
                         all.checked = false;
                         color_check();
