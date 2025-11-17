@@ -24,15 +24,21 @@
                 background-color: rgb(43, 193, 9);
                 border: solid 1px rgb(43, 193, 9);
                 border-radius: 5px;
-                box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 3px 5px rgba(0, 0, 0, .3);
+                /* border-bottom: solid 5px rgb(31, 132, 8); */
             }
             button:hover {
                 background-color: rgb(31, 132, 8);
                 border: solid 1px rgb(31, 132, 8);
+                /* border-bottom: solid 2px rgb(17, 74, 4); */
+                /* margin-top: 3px; */
             }
             .header {
                 background-color: #0041cc;
                 color: white;
+                height: 50px;
+                display: flex;
+                align-items: center;
             }
             .fas {
                 color: white;
@@ -54,13 +60,67 @@
             .table2 tr:nth-child(1) td {
                 border-top: none;
             }
+
+            .table2 tr:nth-child(1)  {
+                position: sticky;
+                top: 0;
+                background-color: white;
+                height: 100%;
+                ;
+            }
+
+            .table2 tr:nth-child(1)::before  {
+                content: "";
+                position: absolute;
+                top: -1px;
+                left: -1px;
+                width: 100%;
+                height: 100%;
+                border: solid 1px black;
+                ;
+            }
+
+            .container-modal {
+                background-color: initial;
+                border: none;
+                height: 100%;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            .container-modal::backdrop {
+                background-color: rgba(0, 0, 0, .5);
+            }
+            .wrapper-modal {
+                background: rgba(255, 255, 255, 1);
+                border: none;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+                height: 320px;
+                left: 50%;
+                opacity: 1;
+                padding: 40px;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                transition: opacity .3s;
+                width: 480px;
+                z-index: 20;
+            }
+
+            .header span::after {
+                font-family: "Font Awesome 5 Free";
+                content: '\f56f';
+                font-weight: 900;
+            }
         </style>
 
     </head>
 
     <body>
         <div class="header">
-            <a href=""><i class="fas fa-sharp fa-light fa-house"></i></a>
+            <a href=""><i class="fas fa-sharp fa-light fa-house fa-border fa-fw"></i></a>
             <span>一覧表</span>
         </div>
     
@@ -137,32 +197,72 @@
                     <th width="100px">カラム名７</th>
                     <th width="100px">カラム名８</th>
                 </tr> 
+                <tr id="tr1">
+                    <td width="100px"><span>1</span></td>
+                    <td width="100px"><span contenteditable="true">セル１</span></td>
+                    <td width="100px"><span contenteditable="true">セル２</span></td>
+                    <td width="100px"><span contenteditable="true">セル３</span></td>
+                    <td width="100px"><span contenteditable="true">セル４</span></td>
+                    <td width="100px"><span contenteditable="true">セル５</span></td>
+                    <td width="100px"><span contenteditable="true">セル６</span></td>
+                    <td width="100px"><input type="checkbox" name="DeleteName[]" value="1" id="cb_tr1" onchange="foo('tr1');"></td>
+                </tr>
+                <tr>
+                    <td width="306px" colspan="3"><span contenteditable="true">合計</span></td>
+                    <td width="100px"><span contenteditable="true">セル４</span></td>
+                    <td width="100px"><span contenteditable="true">セル５</span></td>
+                    <td width="100px"><span contenteditable="true">セル６</span></td>
+                    <td width="100px"><span contenteditable="true">セル７</span></td>
+                    <td width="100px"></td>
+                </tr>
             </table>
-            <div class="tablearea1">
-                <table class="table2" id="tb2">
-                    <tr id="tr1">
-                        <td width="100px"><span>1</span></td>
-                        <td width="100px"><span contenteditable="true">セル１</span></td>
-                        <td width="100px"><span contenteditable="true">セル２</span></td>
-                        <td width="100px"><span contenteditable="true">セル３</span></td>
-                        <td width="100px"><span contenteditable="true">セル４</span></td>
-                        <td width="100px"><span contenteditable="true">セル５</span></td>
-                        <td width="100px"><span contenteditable="true">セル６</span></td>
-                        <td width="100px"><input type="checkbox" name="DeleteName[]" value="1" id="cb_tr1" onchange="foo('tr1');"></td>
-                    </tr>
-                    <tr>
-                        <td width="306px" colspan="3"><span contenteditable="true">合計</span></td>
-                        <td width="100px"><span contenteditable="true">セル４</span></td>
-                        <td width="100px"><span contenteditable="true">セル５</span></td>
-                        <td width="100px"><span contenteditable="true">セル６</span></td>
-                        <td width="100px"><span contenteditable="true">セル７</span></td>
-                        <td width="100px"></td>
-                    </tr>
-                </table>
+
+                <div>
+                    <a href="#" class=" modal_open">s</a>
+                    <a href="#" class=" modal_open">5</a>
+                    <a href="#" class=" modal_open">6</a>
+                    <a href="#" class=" modal_open">7</a>
+                    <button type="button" id="buttonOpen1">モーダルを開く</button>
+                </div>
+                <dialog class="container-modal" id="modalDialog">
+                    <div class="wrapper-modal">
+                        <h2>シンプルなモーダル</h2>
+                        <p>
+                        サンプルテキスト。
+                        dialogタグを使うことで、検索エンジンにも
+                        この要素がダイアログ（モーダルウインドウ）だよ、
+                        ということを明示できるのでは、と期待しています。
+                        </p>
+                        <button id="buttonClose" type="button">モーダルを閉じる</v-btn>
+                    </div>
+                </dialog>
+
             </div>
         </form>
 
         <script>
+            var link = document.getElementsByClassName('modal_open');
+            // var dialog = document.querySelectorAll(`[id^='buttonOpen']`);
+            const myDialog = document.getElementById('modalDialog');
+            const myButtonOpen = document.getElementById('buttonOpen1');
+            const myButtonClose = document.getElementById('buttonClose');
+
+            for(let i = 0; i < link.length; i++){ 
+                link[i].addEventListener('click', () => {
+                    myDialog.showModal();
+                }); 
+            }
+
+            // link.addEventListener('click', () => {
+            //     myDialog.showModal();
+            // });
+            // myButtonOpen.addEventListener('click', () => {
+            //     myDialog.showModal();
+            // });
+            myButtonClose.addEventListener('click', () => {
+                myDialog.close();
+            });
+
             /*
             * foo: チェックを入れた行の背景色を変更
             */
@@ -249,20 +349,21 @@
                 }
             }
 
-            // var table = document.querySelector("#tb2");
-            // var tr = table.querySelectorAll("tr");
-            // table.addEventListener("click", function(e) {
-            //     //clickされたのがtd要素のとき、
-            //     if(e.target.tagName.toLowerCase() === "td") {
-            //         for(var i = 0; i < tr.length; i++) {
-            //             //一旦全てのtr要素の背景色を白にし、
-            //             tr[i].style.backgroundColor = 'white';
-            //         }
-            //         //clickされたtd要素の親であるtr要素のみ背景色を赤にする
-            //         e.target.parentNode.style.backgroundColor = "red";
-            //     }
-            // }, false);
            
+            var table = document.querySelector("#table2");
+            var tr = table.querySelectorAll("tr");
+            table.addEventListener("click", function(e) {
+                //clickされたのがtd要素のとき、
+                if(e.target.tagName.toLowerCase() === "td") {
+                    for(var i = 0; i < tr.length; i++) {
+                        //一旦全てのtr要素の背景色を白にし、
+                        tr[i].style.backgroundColor = 'white';
+                    }
+                    //clickされたtd要素の親であるtr要素のみ背景色を赤にする
+                    e.target.parentNode.style.backgroundColor = "red";
+                }
+            }, false);
+
         </script>
 
     </body>
